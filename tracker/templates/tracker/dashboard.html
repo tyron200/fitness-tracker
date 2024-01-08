@@ -1,0 +1,14 @@
+<!-- tracker/templates/tracker/dashboard.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Welcome, {{ user.username }}!</h2>
+  <h3>Your Workouts:</h3>
+  <ul>
+    {% for workout in workouts %}
+      <li>{{ workout.date }} - {{ workout.exercise.name }} - {{ workout.duration_minutes }} minutes</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'add_workout' %}" class="btn btn-primary">Add Workout</a>
+  <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+{% endblock %}
